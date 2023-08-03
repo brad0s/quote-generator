@@ -2,4 +2,4 @@
 
 Simple quote generator
 
-(Quote API)[https://api-ninjas.com/api/quotes]
+[Quote API](https://api-ninjas.com/api/quotes)
