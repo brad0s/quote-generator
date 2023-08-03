@@ -23,7 +23,6 @@ function App() {
     setIsLoading(false);
   };
   const handleInput = async (value) => {
-    console.log(value);
     setIsLoading(true);
     const newQuote = await fetchQuote(value);
     setQuote(newQuote);

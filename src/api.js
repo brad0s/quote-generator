@@ -1,11 +1,13 @@
 export const fetchQuote = async (q = '') => {
-  let BASE_URL = 'https://api.api-ninjas.com/v1/quotes';
+  const url = new URL('https://api.api-ninjas.com/v1/quotes');
+  const params = new URLSearchParams();
   if (q) {
-    BASE_URL = BASE_URL + '?category' + q;
+    params.append('category', q);
   }
+  url.search = params;
 
   try {
-    const response = await fetch(BASE_URL, {
+    const response = await fetch(url, {
       headers: {
         'x-api-key': process.env.REACT_APP_API_KEY,
       },
