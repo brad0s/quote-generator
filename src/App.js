@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchQuote } from './api';
+import { fetchQuote, fetchQuoteCategory } from './api';
 import { categories } from './context';
 import './App.css';
 
@@ -22,9 +22,10 @@ function App() {
     setQuote(newQuote);
     setIsLoading(false);
   };
+
   const handleInput = async (value) => {
     setIsLoading(true);
-    const newQuote = await fetchQuote(value);
+    const newQuote = await fetchQuoteCategory(value);
     setQuote(newQuote);
     setIsLoading(false);
   };
@@ -37,8 +38,8 @@ function App() {
           <p className='loading'>Loading...</p>
         ) : (
           <>
-            <div className='quote'>{quote.quote}</div>
-            <div className='author'>{quote.author}</div>
+            <div className='quote'>{quote?.quote ?? `Error: Unable to fetch quote`}</div>
+            <div className='author'>{quote?.author ?? 'Unknown'}</div>
           </>
         )}
         <button onClick={() => handleButtonClick()}>Generate</button>
