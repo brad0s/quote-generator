@@ -1,12 +1,18 @@
+body {
+  background: #333;
+}
+
 .App {
   text-align: center;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   min-height: 100vh;
-  background: #333;
+  /* background: #333; */
   color: #fff;
   isolation: isolate;
+  padding: 50px 24px;
+  box-sizing: border-box;
 }
 
 .quote-container {
@@ -21,7 +27,7 @@ h1 {
 }
 
 .quote {
-  font-size: 2rem;
+  font-size: 1.25rem;
   margin-bottom: 1em;
 }
 
@@ -33,7 +39,7 @@ h1 {
 }
 
 .author {
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1em;
@@ -84,6 +90,72 @@ button:hover::before {
   text-transform: uppercase;
 }
 
+.select-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .select {
   margin-top: 3rem;
+}
+
+.select {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 205px;
+  /* padding-right: 10px; */
+  /* padding: 0.35rem 1rem; */
+  box-sizing: border-box;
+  cursor: pointer;
+  pointer-events: none;
+  border: 1px solid white;
+}
+.select:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-10px, -50%);
+  width: 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-chevron-down' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='%23fff' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'%3E%3C/path%3E%3Cpath d='M6 9l6 6l6 -6'%3E%3C/path%3E%3C/svg%3E")
+    center/contain no-repeat;
+}
+.select select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
+  margin: 0;
+  width: 100%;
+  cursor: inherit;
+  /* outline: none; */
+  pointer-events: all;
+  font: inherit;
+  color: inherit;
+}
+/* .select select .focus {
+  pointer-events: none;
+}
+.select select:focus + .focus {
+  position: absolute;
+  inset: 0;
+  outline: 5px auto -webkit-focus-ring-color;
+} */
+
+@media screen and (min-width: 769px) {
+  .App {
+    align-items: center;
+  }
+
+  .quote {
+    font-size: 2rem;
+  }
+
+  .author {
+    font-size: 1.25rem;
+  }
 }

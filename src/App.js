@@ -43,14 +43,16 @@ function App() {
           </>
         )}
         <button onClick={() => handleButtonClick()}>Generate</button>
-        <div className='select'>
-          <select name='category' id='category' onInput={(e) => handleInput(e.target.value)}>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
+        <div className='select-wrapper'>
+          <div className='select'>
+            <select name='category' id='category' onInput={(e) => handleInput(e.target.value)}>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
     </div>
